@@ -3,12 +3,10 @@ package io.joel;
 public class Main {
 
     public static void main(String[] args) {
-        Bike bike = new Bike();
-        Bike joelBike = new Bike();
-        bike.accelerateAndMove(10000);
-        bike.report();
+        Game game = new Game();
+        game.AddBike(5);
+        game.moveBikes(10);
+        game.BikeReport();
 
-        joelBike.accelerateAndMove(10000);
-        joelBike.report();
     }
 }

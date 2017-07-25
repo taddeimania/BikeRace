@@ -25,7 +25,6 @@ public class Bike extends BaseRandom {
             accelerateAndMove();
         }
     }
-
     public void accelerate() {
         double magnitude = GetAccelerationAmount();
         double newSpeed = speed + magnitude;
@@ -53,6 +52,7 @@ public class Bike extends BaseRandom {
     }
 
     public void report() {
+        System.out.println("----------");
         System.out.println(getLocation());
         System.out.println(getSpeed());
     }
