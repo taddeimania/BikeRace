@@ -1,20 +1,21 @@
 package io.joel;
 
-import java.util.Random;
+import io.joel.AbstractClasses.BaseRandom;
 
-public class Bike {
+public class Bike extends BaseRandom {
     private double location;
     private double speed;
-    private Random rng;
 
     public Bike() {
         location = 0;
         speed = 0;
-        rng = new Random();
     }
 
     public void accelerate() {
-        speed++;
+        double magnitude = GetAccelerationAmount();
+        if ((speed + magnitude) > 0) {
+            speed = speed + magnitude;
+        }
     }
 
     public void move() {
