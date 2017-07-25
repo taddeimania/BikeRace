@@ -10,7 +10,19 @@ public abstract class BaseRandom {
         return min + (random * (max - min));
     }
 
+    private double RandomRange(int min, int max) {
+        return RandomRange((double) min, (double) max);
+    }
+
     public double GetAccelerationAmount() {
-        return RandomRange(-1.0, 2.0);
+        return RandomRange(-1, 2);
+    }
+
+    public boolean ShouldAccelerate() {
+        return rng.nextBoolean();
+    }
+
+    public double GetRandomSpeed() {
+        return RandomRange(15, 20);
     }
 }

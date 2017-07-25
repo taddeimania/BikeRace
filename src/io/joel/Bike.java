@@ -5,21 +5,43 @@ import io.joel.AbstractClasses.BaseRandom;
 public class Bike extends BaseRandom {
     private double location;
     private double speed;
+    private double topSpeed;
 
     public Bike() {
         location = 0;
         speed = 0;
+        topSpeed = GetRandomSpeed();
+    }
+
+    public void accelerateAndMove() {
+        if (ShouldAccelerate()) {
+            accelerate();
+        }
+        move();
+    }
+
+    public void accelerateAndMove(int count) {
+        for (int i = 0; i < count; i++) {
+            accelerateAndMove();
+        }
     }
 
     public void accelerate() {
         double magnitude = GetAccelerationAmount();
-        if ((speed + magnitude) > 0) {
+        double newSpeed = speed + magnitude;
+        if (newSpeed > 0 && newSpeed <= topSpeed) {
             speed = speed + magnitude;
         }
     }
 
     public void move() {
         location = location + speed;
+    }
+
+    public void move(int count) {
+        for (int i = 0; i < count; i++) {
+            move();
+        }
     }
 
     public double getLocation() {
