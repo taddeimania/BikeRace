@@ -26,7 +26,8 @@ public class Game {
         }
         System.out.println("WE HAVE A WINNNNNNER!");
         if (finishers.size() > 1) {
-            // Photo Finish
+            System.out.println("HOLY CRAP ITS A PHOTO FINISH!");
+            photoFinish(finishers).report();
         } else {
             finishers.get(0).report();
         }
@@ -59,4 +60,19 @@ public class Game {
             bike.accelerateAndMove(count);
         }
     }
+
+    public static Bike photoFinish(List<Bike> finishers) {
+        Bike winner = finishers.get(0);
+
+        for (Bike bike : finishers) {
+            if (bike.getLocation() > winner.getLocation()) {
+                winner = bike;
+            }
+        }
+
+        return winner;
+    }
+
+    // Take a list of finishers
+    // Return a single bike that has the highest location double
 }
