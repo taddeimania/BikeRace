@@ -1,0 +1,11 @@
+Bike
+ Actions
+  - Accelerate
+  - Brake (Decelerate)
+  - ReportLocation
+  - Move
+
+ Nouns
+  - Speed
+  - Location
+  - SkillModifier
